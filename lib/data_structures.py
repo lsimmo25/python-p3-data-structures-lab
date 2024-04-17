@@ -1,3 +1,5 @@
+import ipdb
+
 spicy_foods = [
     {
         "name": "Green Curry",
@@ -17,22 +19,36 @@ spicy_foods = [
 ]
 
 def get_names(spicy_foods):
-    pass
+    return [food["name"] for food in spicy_foods]
 
 def get_spiciest_foods(spicy_foods):
-    pass
+    return [food for food in spicy_foods if food["heat_level"] > 5]
 
 def print_spicy_foods(spicy_foods):
-    pass
+    for food in spicy_foods:
+        heat_level_emojii = "🌶" * food["heat_level"]
+        print(f"{food['name']} ({food['cuisine']}) | Heat Level: {heat_level_emojii}")
+        
 
 def get_spicy_food_by_cuisine(spicy_foods, cuisine):
-    pass
+    for food in spicy_foods:
+        if food["cuisine"] == cuisine:
+            return food
 
 def print_spiciest_foods(spicy_foods):
-    pass
+    for food in spicy_foods:
+        heat_level_emojii = "🌶" * food["heat_level"]
+        if food["heat_level"] > 5:
+            print(f"{food['name']} ({food['cuisine']}) | Heat Level: {heat_level_emojii}")
 
 def get_average_heat_level(spicy_foods):
-    pass
+    average_heat = 0
+    for food in spicy_foods:
+        average_heat += food["heat_level"]
+    average_heat = average_heat / len(spicy_foods)
+    return int(average_heat)
+    
 
 def create_spicy_food(spicy_foods, spicy_food):
-    pass
+    spicy_foods.append(spicy_food)
+    return spicy_foods
